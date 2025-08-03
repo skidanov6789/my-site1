@@ -1,78 +1,228 @@
-<!DOCTYPE html
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение на свадьбу | Данил & Екатерина</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+        
+        :root {
+            --primary: #e83f6f;
+            --secondary: #ff9f1c;
+            --accent: #2ec4b6;
+            --light: #fdfffc;
+            --dark: #011627;
+        }
+        
         body {
-            font-family: 'Playfair Display', serif;
-            background-color: #fff9f9;
-            color: #5a3e36;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #fff5f5 0%, #fff0f5 100%);
+            color: var(--dark);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.8;
+            overflow-x: hidden;
         }
+        
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             text-align: center;
+            position: relative;
         }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+        }
+        
         header {
-            padding: 40px 0;
-            border-bottom: 1px solid #e8c8c8;
+            padding: 60px 0 40px;
+            position: relative;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%23e83f6f" d="M0,0 L100,0 100,10 0,20 Z"/></svg>') bottom left/100% 20px no-repeat;
         }
+        
+        h1, h2, h3 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        
         h1 {
-            font-size: 3em;
-            margin: 10px 0;
-            color: #b76e79;
+            font-size: 3.5em;
+            margin: 20px 0;
+            color: var(--primary);
+            animation: fadeIn 1.5s ease;
         }
+        
         .names {
-            font-size: 2.5em;
-            letter-spacing: 5px;
-            margin: 20px 0;
+            font-size: 3em;
+            letter-spacing: 3px;
+            margin: 30px 0;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
         }
+        
+        .names::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
         .date {
-            font-size: 1.8em;
-            margin: 30px 0;
+            font-size: 2em;
+            margin: 40px 0;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
+        
         .location {
-            font-size: 1.5em;
-            margin: 20px 0;
-        }
-        .rsvp {
-            background-color: #b76e79;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.2em;
+            font-size: 1.6em;
             margin: 30px 0;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+        
+        .address {
+            font-size: 0.9em;
+            display: block;
+            margin-top: 10px;
+            color: #666;
+        }
+        
+        .program-time {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .program-time:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .rsvp {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 18px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            margin: 40px 0;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
+            box-shadow: 0 5px 15px rgba(232, 63, 111, 0.4);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
+        
+        .rsvp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(232, 63, 111, 0.6);
+        }
+        
         .details {
-            margin: 40px 0;
-            text-align: left;
-            padding: 0 20px;
+            margin: 50px 0;
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
+        
+        .dress-code {
+            font-style: italic;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-top: 20px;
+            display: inline-block;
+            padding: 15px 25px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            border-left: 5px solid var(--secondary);
+        }
+        
         footer {
-            margin-top: 50px;
-            padding: 20px 0;
-            border-top: 1px solid #e8c8c8;
-            font-size: 0.9em;
+            margin-top: 60px;
+            padding: 30px 0;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            font-size: 1em;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 0 0 20px 20px;
         }
+        
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            opacity: 0;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
         max-width: 600px {
-            h1 { font-size: 2em; }
-            .names { font-size: 1.8em; }
+            h1 { font-size: 2.5em; }
+            .names { font-size: 2em; }
+            .date { font-size: 1.5em; }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap&quot; rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
+        <div class="hearts" id="hearts"></div>
+        
         <header>
             <h1>Приглашение на свадьбу</h1>
             <div class="names">Данил & Екатерина</div>
@@ -81,51 +231,87 @@
         <div class="date">22 Августа 2025</div>
         
         <div class="location">
-            
             Торжественная регистрация
-Карла Маркса, д.40/3, Ишим
+
+            <span class="address">Карла Маркса, д.40/3, Ишим</span>
         </div>
 
         <a href="#rsvp" class="rsvp">Подтвердить присутствие</a>
 
         <div class="details">
             <h2>Дорогие друзья и родные!</h2>
-            <p>Мы рады пригласить вас разделить с нами самый важный день в нашей жизни. Ваше присутствие сделает наш праздник по-настоящему особенным.</p>
+            <p style="font-size: 1.1em;">Мы рады пригласить вас разделить с нами самый важный день в нашей жизни. Ваше присутствие сделает наш праздник по-настоящему особенным.</p>
             
-            <h3>Программа дня:</h3>
-            <p>14:00 - Свабедная церемония в ЗАГСе г. Ишима.
-
-            16:00 - Праздничный банкет в ресторане "Охотник", ул. Советская 11
-
-            00:00 - Окончание мероприятия</p>
+            <h3 style="color: var(--accent); margin-top: 40px;">Программа дня:</h3>
+            <span class="program-time">14:00 - Свадебная церемония в ЗАГСе г. Ишима</span>
+            <span class="program-time">16:00 - Праздничный банкет в ресторане "Охотник"</span>
+            <span class="program-time" style="font-size: 0.9em; color: #666;">ул. Советская, 11</span>
+            <span class="program-time">00:00 - Окончание мероприятия</span>
             
-            <h3>Дресс-код:</h3>
-            <p>Вечерние наряды в пастельных тонах</p>
+            <h3 style="color: var(--accent); margin-top: 40px;">Дресс-код:</h3>
+            <p class="dress-code">Яркие вечерние наряды в праздничном стиле:
+
+            Для женщин - элегантные платья в насыщенных тонах
+
+            Для мужчин - стильные костюмы с акцентами</p>
         </div>
 
-        <div id="rsvp">
-            <h2>Подтвердите ваше присутствие</h2>
-            <form>
-                <input type="text" placeholder="Ваше имя" style="padding: 10px; margin: 10px; width: 80%; max-width: 300px;">
+        <div id="rsvp" style="margin-top: 60px;">
+            <h2 style="color: var(--primary);">Подтвердите ваш
 
-                <input type="email" placeholder="Ваш email" style="padding: 10px; margin: 10px; width: 80%; max-width: 300px;">
 
-                <select style="padding: 10px; margin: 10px; width: 80%; max-width: 300px;">
+е присутствие</h2>
+            <form style="max-width: 400px; margin: 0 auto;">
+                <input type="text" placeholder="Ваше имя" style="padding: 15px; margin: 15px; width: 80%; max-width: 300px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em; transition: all 0.3s ease;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#ddd'">
+
+                <input type="email" placeholder="Ваш email" style="padding: 15px; margin: 15px; width: 80%; max-width: 300px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em; transition: all 0.3s ease;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#ddd'">
+
+                <select style="padding: 15px; margin: 15px; width: 80%; max-width: 300px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em; transition: all 0.3s ease;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#ddd'">
                     <option>Я буду</option>
                     <option>К сожалению, не смогу</option>
                 </select>
 
-                <button type="submit" class="rsvp" style="border: none;">Отправить</button>
+                <button type="submit" class="rsvp" style="border: none; margin-top: 20px;">Отправить ответ</button>
             </form>
         </div>
 
         <footer>
-            С любовью, Данил и Екатерина
-
-            По вопросам: +7 (951) 801 36 05 - Екатерина, +7 (908) 865 41 63 - Данил
+            <div style="font-size: 1.3em; margin-bottom: 20px; color: var(--primary);">С любовью, Данил и Екатерина</div>
+            <div style="margin-top: 20px;">
+                <div style="display: inline-block; margin: 0 15px;">
+                    <span style="font-weight: 600;">Екатерина:</span> +7 (951) 801 36 05
+                </div>
+                <div style="display: inline-block; margin: 0 15px;">
+                    <span style="font-weight: 600;">Данил:</span> +7 (908) 865 41 63
+                </div>
+            </div>
         </footer>
     </div>
+
+    <script>
+        // Создаем плавающие сердечки
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            const colors = ['#e83f6f', '#ff9f1c', '#2ec4b6', '#ff6392', '#7b2dbf'];
+            
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤';
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        // Запускаем анимацию при загрузке
+        window.onload = function() {
+            createHearts();
+        };
+    </script>
 </body>
-
-</html>
-
+</html> trans
