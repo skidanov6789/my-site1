@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу | Аня & Иван</title>
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #fff9f9;
+            color: #5a3e36;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        header {
+            padding: 40px 0;
+            border-bottom: 1px solid #e8c8c8;
+        }
+        h1 {
+            font-size: 3em;
+            margin: 10px 0;
+            color: #b76e79;
+        }
+        .names {
+            font-size: 2.5em;
+            letter-spacing: 5px;
+            margin: 20px 0;
+        }
+        .date {
+            font-size: 1.8em;
+            margin: 30px 0;
+        }
+        .location {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        .rsvp {
+            background-color: #b76e79;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            margin: 30px 0;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .details {
+            margin: 40px 0;
+            text-align: left;
+            padding: 0 20px;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px 0;
+            border-top: 1px solid #e8c8c8;
+            font-size: 0.9em;
+        }
+        max-width: 600px {
+            h1 { font-size: 2em; }
+            .names { font-size: 1.8em; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap&quot; rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Приглашение на свадьбу</h1>
+            <div class="names">Аня & Иван</div>
+        </header>
+
+        <div class="date">15 Июня 2024</div>
+        
+        <div class="location">
+            Ресторан "Белая Лилия"
+
+            Москва, ул. Цветочная, 15
+        </div>
+
+        <a href="#rsvp" class="rsvp">Подтвердить присутствие</a>
+
+        <div class="details">
+            <h2>Дорогие друзья и родные!</h2>
+            <p>Мы рады пригласить вас разделить с нами самый важный день в нашей жизни. Ваше присутствие сделает наш праздник по-настоящему особенным.</p>
+            
+            <h3>Программа дня:</h3>
+            <p>16:00 - Церемония
+
+            17:30 - Фуршет
+
+            19:00 - Банкет</p>
+            
+            <h3>Дресс-код:</h3>
+            <p>Вечерние наряды в пастельных тонах</p>
+        </div>
+
+        <div id="rsvp">
+            <h2>Подтвердите ваше присутствие</h2>
+            <form>
+                <input type="text" placeholder="Ваше имя" style="padding: 10px; margin: 10px; width: 80%; max-width: 300px;">
+
+                <input type="email" placeholder="Ваш email" style="padding: 10px; margin: 10px; width: 80%; max-width: 300px;">
+
+                <select style="padding: 10px; margin: 10px; width: 80%; max-width: 300px;">
+                    <option>Я буду</option>
+                    <option>К сожалению, не смогу</option>
+                </select>
+
+                <button type="submit" class="rsvp" style="border: none;">Отправить</button>
+            </form>
+        </div>
+
+        <footer>
+            С любовью, Аня и Иван
+
+            По вопросам: +7 (123) 456-78-90
+        </footer>
+    </div>
+</body>
+</html>
