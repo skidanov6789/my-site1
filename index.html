@@ -17,12 +17,17 @@
         
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #fff5f5 0%, #fff0f5 100%);
+            background: linear-gradient(135deg, #fdf0f0 0%, #fff0f5 100%);
             color: var(--dark);
             margin: 0;
             padding: 0;
             line-height: 1.8;
             overflow-x: hidden;
+            background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069');
+            background-size: cover;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+            background-color: rgba(255, 245, 245, 0.9);
         }
         
         .container {
@@ -31,6 +36,11 @@
             padding: 20px;
             text-align: center;
             position: relative;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+            margin-bottom: 30px;
         }
         
         .container::before {
@@ -41,12 +51,12 @@
             right: 0;
             height: 10px;
             background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            border-radius: 10px 10px 0 0;
         }
         
         header {
             padding: 60px 0 40px;
             position: relative;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%23e83f6f" d="M0,0 L100,0 100,10 0,20 Z"/></svg>') bottom left/100% 20px no-repeat;
         }
         
         h1, h2, h3 {
@@ -123,7 +133,10 @@
         
         .location {
             font-size: 1.6em;
-            margin: 30px 0;
+            margin:
+
+
+0;
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.7);
             border-radius: 15px;
@@ -133,12 +146,8 @@
         
         .address {
             font-size: 0.9em;
-            display: block
-SVG namespace
-www.w3.org
-
-
-margin-top: 10px;
+            display: block;
+            margin-top: 10px;
             color: #666;
         }
         
@@ -246,6 +255,54 @@ margin-top: 10px;
             animation: spin 1s linear infinite;
         }
         
+        .form-input {
+            padding: 15px;
+            margin: 15px;
+            width: 80%;
+            max-width: 300px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .form-input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(232, 63, 111, 0.2);
+        }
+        
+        .form-select {
+            padding: 15px;
+            margin: 15px;
+            width: 80%;
+            max-width: 300px;
+            border: 2px solid #ddd;
+            border-radius: 8
+
+
+px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            background-color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .form-textarea {
+            padding: 15px;
+            margin: 15px;
+            width: 80%;
+            max-width: 300px;
+            height: 100px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            resize: vertical;
+        }
+        
         @keyframes float {
             0% {
                 transform: translateY(0) rotate(0deg);
@@ -270,6 +327,11 @@ margin-top: 10px;
             100% { transform: rotate(360deg); }
         }
         
+        @keyframes confetti {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
         max-width: 600px {
             h1 { font-size: 2.5em; }
             .names { font-size: 2.5em; }
@@ -280,10 +342,7 @@ margin-top: 10px;
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wg
-
-
-ht@400;700&family=Montserrat:wght@300;400;600&family=Marck+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&family=Marck+Script&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -320,8 +379,7 @@ ht@400;700&family=Montserrat:wght@300;400;600&family=Marck+Script&display=swap" 
             <span class="program-time">00:00 - Окончание мероприятия</span>
             
             <h3 style="color: var(--accent); margin-top: 40px;">Дресс-код:</h3>
-            <p class="dress-code">Яркие вечерние наряды в праздничном стиле; 
-                Для мужчин - стильные костюмы с акцентами</p>
+            <p class="dress-code">Яркие вечерние наряды в праздничном стиле;   Для мужчин - стильные костюмы с акцентами</p>
         </div>
 
         <div id="rsvp" style="margin-top: 60px;">
@@ -332,23 +390,21 @@ ht@400;700&family=Montserrat:wght@300;400;600&family=Marck+Script&display=swap" 
                 <p>Мы получили ваше подтверждение и с нетерпением ждем встречи с вами на нашей свадьбе.</p>
             </div>
             
-            <form id="rsvp-form" style="max-width: 400px; margin: 0 auto; display: block;">
-                <input type="text" name="name" id="guest-name" placeholder="Ваше имя" required style="padding: 15px; margin: 15px; width: 80%; max-width: 300px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em; transition: all 0.3s ease;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#ddd'">
+            <!-- Форма с использованием Formspree -->
+            <form id="rsvp-form" action="https://formsp
 
-                <input type="email" name="email" id="guest-email" placeholder="Ваш email" required style="padding: 15px; margin: 15px; width: 80%; max-width: 300px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em; transition: all 0.3s ease;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#ddd'">
 
-                <select name="attendance" id="attendance" required style="padding: 15px; margin: 15px; width: 80%; max-width: 300px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em; transition: all 0.3s ease;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#ddd'">
+ree.io/f/mqkrgvjk" method="POST" style="max-width: 400px; margin: 0 auto; display: block;">
+                <input type="text" name="name" id="guest-name" placeholder="Ваше имя" required class="form-input">
+                <input type="email" name="email" id="guest-email" placeholder="Ваш email" class="form-input">
+                <select name="attendance" id="attendance" required class="form-select">
                     <option value="" disabled selected>Выберите вариант</option>
-                    <option value="yes">Я буду!</option>
+                    <option value="yes">Я буду с удовольствием</option>
                     <option value="no">К сожалению, не смогу</option>
                 </select>
-                
-                <textarea name="message" placeholder="Ваше пожелание или комментарий (необязательно)" style="padding: 15px; margin: 15px; width: 80%; max-width: 300px; height: 100px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='#ddd'"></textarea>
-
+                <textarea name="message" placeholder="Ваше пожелание или комментарий, укажите есть "+1" (необязательно)" class="form-textarea"></textarea>
                 <button type="submit" class="rsvp" style="border: none; margin-top: 20px;">Отправить ответ</button>
-
-
-</form>
+            </form>
             
             <div class="loader" id="loader"></div>
         </div>
@@ -386,46 +442,84 @@ ht@400;700&family=Montserrat:wght@300;400;600&family=Marck+Script&display=swap" 
             }
         }
         
-        // Обработка формы RSVP
+        // Обработка формы RSVP с использованием Formspree
         document.getElementById('rsvp-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
             // Показать загрузчик
             document.getElementById('loader').style.display = 'block';
-            this.style.display = 'none';
             
             // Собрать данные формы
-            const formData = {
-                name: document.getElementById('guest-name').value,
-                email: document.getElementById('guest-email').value,
-                attendance: document.getElementById('attendance').value,
-                message: this.querySelector('[name="message"]').value
-            };
+            const formData = new FormData(this);
             
-            // Отправка данных (эмуляция)
-            setTimeout(() => {
-                // Скрыть загрузчик
+            // Отправка данных через Formspree
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Скрыть форму и загрузчик
+                    this.style.display = 'none';
+                    document.getElementById('loader').style.display = 'none';
+                    
+                    // Показать сообщение об успехе
+                    document.getElementById('thank-you').style.display = 'block';
+                    
+                    // Создать анимацию конфетти
+                    createConfetti();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            alert("Ошибка отправки: " + data.errors.map(error => error.message).join(", "));
+                        } else {
+                            alert("Произошла ошибка при отправке формы");
+                        }
+                        document.getElementById('loader').style.display = 'none';
+                    });
+                }
+            })
+            .catch(error => {
+                alert("Произошла ошибка при отправке формы");
                 document.getElementById('loader').style.display = 'none';
-                
-                // Показать сообщение об успехе
-                document.getElementById('thank-you').style.display = 'block';
-                
-                // Отправка данных на почту
-                sendDataToEmail(formData);
-            }, 1500);
+            });
         });
         
-        // Функция отправки данных на почту
-        function sendDataToEmail(data) {
-            // Формируем тело письма
-            const emailSubject = `Ответ на свадьбу от ${data.name}`;
-            const emailBody = `Новый ответ на свадебное приглашение!\n\nИмя: ${data.name}\nEmail: ${data.email}\nПрисутствие: ${data.attendance === 'yes' ? 'Буду' : 'Не смогу'}\nСообщение: ${data.message || '-'}`;
+        // Функция создания конфетти
+        function createConfetti() {
+            const confettiContainer = document.createElement('div');
+            confettiContainer.style.position = 'fixed';
+            confettiContainer.style.top = '0';
+            confettiContainer.style.left = '0';
+            confettiContainer.style.width = '100%';
+            confettiContainer.style.height = '100%';
+            confettiContainer.style.pointerEvents = 'none';
+            confettiContainer.style.zIndex = '1000';
+            document.body.appendChild(confettiContainer);
             
-            // Формируем ссылку mailto
-            const mailtoLink = `mailto:danil.skidanov1337@mail.ru?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            const colors = ['#e83f6f', '#ff9f1c', '#2ec4b6', '#ff6392', '#7b2dbf', '#ffd166', '#06d6a0'];
+            const symbols = ['❤', '✨', '🥂', '🎉', '💍', '💌', '🌸'];
             
-            // Открываем почтовый клиент
-            window.location.href = mailtoLink;
+            for (let i = 0; i < 150; i++) {
+                const confetti = document.createElement('div');
+                confetti.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                confetti.style.position = 'absolute';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.opacity = '0';
+                confetti.style.animation = `confetti ${Math.random() * 3 + 2}s ease-in-out forwards`;
+                confetti.style.animationDelay = Math.random() * 1 + 's';
+                confettiContainer.appendChild(confetti);
+            }
+            
+            // Удалить контейнер через 5 секунд
+            setTimeout(() => {
+                document.body.removeChild(confettiContainer);
+            }, 5000);
         }
         
         // Запускаем анимацию при загрузке
@@ -434,4 +528,4 @@ ht@400;700&family=Montserrat:wght@300;400;600&family=Marck+Script&display=swap" 
         };
     </script>
 </body>
-</html>;
+</html> 30px
