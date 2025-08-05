@@ -1,543 +1,634 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приглашение на свадьбу | Данил & Екатерина</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Raleway:wght@300;400;500&family=Great+Vibes&display=swap');
-        
-        :root {
-            --cream: #f8f4e9;
-            --burgundy: #7a3b3b;
-            --gold: #d4af37;
-            --dark-green: #2a4c3b;
-            --beige: #e8ddca;
-        }
-        
-        body {
-            font-family: 'Raleway', sans-serif;
-            background: url('https://www.transparenttextures.com/patterns/cream-paper.png'), linear-gradient(to bottom, #f8f4e9, #f0e8d8);
-            color: #3a3a3a;
-            margin: 0;
-            padding: 0;
-            line-height: 1.8;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 750px;
-            margin: 40px auto;
-            padding: 70px 50px 40px;
-            text-align: center;
-            position: relative;
-            background-color: var(--cream);
-            border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            background-image: url('https://i.ibb.co/txP7J8X/corner-left.png'), url('https://i.ibb.co/1d9gGfJ/corner-right.png');
-            background-repeat: no-repeat;
-            background-position: left top, right top;
-            background-size: 180px;
-            border: 1px solid rgba(122, 59, 59, 0.15);
-        }
-        
-        .container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-        }
-        
-        header {
-            padding: 20px 0 30px;
-            position: relative;
-        }
-        
-        h1, h2, h3 {
-            text-align: center;
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--burgundy);
-            font-weight: 500;
-            letter-spacing: 1px;
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin: 10px 0 20px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-        }
-        
-        .names {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.8rem;
-            margin: 30px 0;
-            color: var(--burgundy);
-            position: relative;
-            display: inline-block;
-            line-height: 1.2;
-        }
-        
-        .names::after {
-            content: "";
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 180px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-        }
-        
-        .couple-photo {
-            margin: 50px auto;
-            width: 75%;
-            max-width: 400px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
-            border: 8px solid var(--beige);
-            position: relative;
-        }
-        
-        .couple-photo::before {
-            content: "";
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
-            border: 1px solid var(--gold);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        
-        .couple-photo img {
-            width: 100%;
-            height: auto;
-            display: block;
-            max-height: 400px;
-            object-fit: cover;
-        }
-        
-        .date {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
-            margin: 40px 0 30px;
-            color: var(--dark-green);
-            font-weight: 500;
-            letter-spacing: 1px;
-            position: relative;
-            display: inline-block;
-            padding: 0 20px;
-        }
-        
-        .date::before,
-        .date::after {
-            content: "✻";
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--gold);
-            font-size: 1.2rem;
-        }
-        
-        .date::before {
-            left: -5px;
-        }
-        
-        .date::after {
-            right: -5px;
-        }
-        
-        .location {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            margin: 20px 0;
-            padding: 20px 40px;
-            background-color: rgba(232, 221, 202, 0.4);
-            border-radius: 0;
-            display: inline-block;
-            border-left: 2px solid var(--gold);
-            border-right: 2px solid var(--gold);
-            max-width: 500px;
-        }
-        
-        .address {
-            font-size: 1rem;
-            display: block;
-            margin-top: 15px;
-            color: #5a5a5a;
-            font-family: 'Raleway', sans-serif;
-        }
-        
-        .program-time {
-            display: block;
-            margin: 20px 0;
-            padding: 12px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            position: relative;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .program-time::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 30px;
-            height: 1px;
-            background: var(--gold);
-        }
-        
-        .rsvp {
-            background: transparent;
-            color: var(--burgundy);
-            padding: 15px 40px;
-            border: 1px solid var(--burgundy);
-            border-radius: 0;
-            font-size: 1.1rem;
-            margin: 40px 0;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            font-family: 'Cormorant Garamond', serif;
-            letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .rsvp::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(122, 59, 59, 0.1);
-            transition: all 0.4s ease;
-            z-index: -1;
-        }
-        
-        .rsvp:hover {
-            color: var(--cream);
-            background: var(--burgundy);
-        }
-        
-        .rsvp:hover::before {
-            left: 0;
-        }
-        
-        .details {
-            margin: 50px 0;
-            text-align: center;
-            padding: 40px 30px;
-            position: relative;
-        }
-        
-        .details::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 1px;
-            background: var(--gold);
-        }
-        
-        .dress-code {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--dark-green);
-            font-weight: 500;
-            font-size: 1.2rem;
-            margin-top: 25px;
-            display: inline-block;
-            padding: 15px 30px;
-            position: relative;
-            max-width: 500px;
-        }
-        
-        .dress-code::before,
-        .dress-code::after {
-            content: """;
-            position: absolute;
-            top: 5px;
-            font-size: 3rem;
-            color: rgba(212, 175, 55, 0.3);
-            font-family: 'Cormorant Garamond', serif;
-        }
-        
-        .dress-code::before {
-            left: 0;
-        }
-        
-        .dress-code::after {
-            right: 0;
-            transform: scaleX(-1);
-        }
-        
-        footer {
-            margin-top: 60px;
-            padding: 30px 0 10px;
-            font-size: 1em;
-            position: relative;
-        }
-        
-        footer::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 1px;
-            background: var(--gold);
-        }
-        
-        #thank-you {
-            display: none;
-            background: rgba(232, 221, 202, 0.3);
-            padding: 30px;
-            border-radius: 0;
-            margin: 20px 0;
-            border-left: 2px solid var(--gold);
-            border-right: 2px solid var(--gold);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-        }
-        
-        .form-input, .form-select, .form-textarea {
-            background: transparent;
-            border: 1px solid rgba(122, 59, 59, 0.3);
-            border-radius: 0;
-            color: #3a3a3a;
-            font-family: 'Raleway', sans-serif;
-        }
-        
-        .form-input:focus, .form-textarea:focus {
-            border-color: var(--burgundy);
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(122, 59, 59, 0.1);
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 50px 20px;
-                background-size: 120px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .names {
-                font-size: 3rem;
-            }
-            
-            .date {
-                font-size: 1.8rem;
-            }
-            
-            .couple-photo {
-                width: 90%;
-            }
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Raleway:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу | Данил & Екатерина</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Raleway:wght@300;400;500&family=Great+Vibes&display=swap');
+        
+        :root {
+            --cream: #f9f5f0;
+            --burgundy: #6d2d2d;
+            --gold: #c5a368;
+            --dark-green: #2a4c3b;
+            --beige: #e8ddca;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: url('https://www.transparenttextures.com/patterns/cream-paper.png'), linear-gradient(to bottom, #f8f4e9, #f0e8d8);
+            color: #3a3a3a;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 60px 50px;
+            text-align: center;
+            position: relative;
+            background-color: var(--cream);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background-image: 
+                url('https://i.ibb.co/0FvQv1w/corner-top-left.png'), 
+                url('https://i.ibb.co/5Kp6d0z/corner-top-right.png'),
+                url('https://i.ibb.co/7C4X4T8/corner-bottom-left.png'),
+                url('https://i.ibb.co/QfMqFdX/corner-bottom-right.png');
+            background-repeat: no-repeat;
+            background-position: left top, right top, left bottom, right bottom;
+            background-size: 120px;
+            border: 1px solid rgba(109, 45, 45, 0.1);
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        
+        header {
+            padding: 20px 0 30px;
+            position: relative;
+        }
+        
+        h1, h2, h3 {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--burgundy);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin: 10px 0 20px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 1px;
+            background: var(--gold);
+        }
+        
+        .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            margin: 30px 0;
+            color: var(--burgundy);
+            position: relative;
+            display: inline-block;
+            line-height: 1.2;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .names::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        
+        .couple-photo {
+            margin: 50px auto;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+            border: 8px solid var(--beige);
+            position: relative;
+        }
+        
+        .couple-photo::before {
+            content: "";
+            position: absolute;
+            top:
+
+
+-15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .couple-photo img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+        
+        .date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            margin: 40px 0 30px;
+            color: var(--dark-green);
+            font-weight: 500;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+            padding: 0 25px;
+        }
+        
+        .date::before,
+        .date::after {
+            content: "✻";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+        
+        .date::before {
+            left: -5px;
+        }
+        
+        .date::after {
+            right: -5px;
+        }
+        
+        .location {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            margin: 20px 0;
+            padding: 20px 40px;
+            background-color: rgba(232, 221, 202, 0.4);
+            display: inline-block;
+            border-left: 2px solid var(--gold);
+            border-right: 2px solid var(--gold);
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .address {
+            font-size: 1rem;
+            display: block;
+            margin-top: 15px;
+            color: #5a5a5a;
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .program-time {
+            display: block;
+            margin: 20px 0;
+            padding: 12px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            position: relative;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: 0.5px;
+        }
+        
+        .program-time::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
+        }
+        
+        .rsvp {
+            background: transparent;
+            color: var(--burgundy);
+            padding: 14px 45px;
+            border: 1px solid var(--burgundy);
+            border-radius: 0;
+            font-size: 1.1rem;
+            margin: 40px 0;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .rsvp::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(109, 45, 45, 0.1);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .rsvp:hover {
+            color: var(--cream);
+            background: var(--burgundy);
+        }
+        
+        .rsvp:hover::before {
+            left: 0;
+        }
+        
+        .details {
+            margin: 50px 0;
+            text-align: center;
+            padding: 40px 30px;
+            position: relative;
+        }
+        
+        .details::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 1px;
+            background: var(--gold);
+        }
+        
+        .dress-code {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--dark-green);
+            font-weight: 500;
+            font-size: 1.2rem;
+            margin-top: 25px;
+            display: inline-block;
+
+
+padding: 15px 30px;
+            position: relative;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+        
+        .dress-code::before,
+        .dress-code::after {
+            content: """;
+            position: absolute;
+            top: 5px;
+            font-size: 3rem;
+            color: rgba(197, 163, 104, 0.3);
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .dress-code::before {
+            left: 0;
+        }
+        
+        .dress-code::after {
+            right: 0;
+            transform: scaleX(-1);
+        }
+        
+        footer {
+            margin-top: 60px;
+            padding: 30px 0 10px;
+            font-size: 1em;
+            position: relative;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: var(--gold);
+        }
+        
+        #thank-you {
+            display: none;
+            background: rgba(232, 221, 202, 0.3);
+            padding: 30px;
+            margin: 20px 0;
+            border-left: 2px solid var(--gold);
+            border-right: 2px solid var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+        }
+        
+        .form-input, .form-select, .form-textarea {
+            background: transparent;
+            border: 1px solid rgba(109, 45, 45, 0.2);
+            border-radius: 0;
+            color: #3a3a3a;
+            font-family: 'Raleway', sans-serif;
+            padding: 14px;
+            margin: 12px 0;
+            width: 80%;
+            max-width: 300px;
+            font-size: 1rem;
+        }
+        
+        .form-input:focus, .form-textarea:focus {
+            border-color: var(--burgundy);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(109, 45, 45, 0.1);
+        }
+        
+        .form-textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .form-select {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .error-message {
+            color: var(--burgundy);
+            margin: -5px 0 10px 0;
+            font-size: 0.9em;
+            display: none;
+        }
+        
+        .floral-divider {
+            position: relative;
+            height: 40px;
+            margin: 30px 0;
+        }
+        
+        .floral-divider::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 30px;
+            background-image: url('https://i.ibb.co/5K4NvZb/floral-divider.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.7;
+        }
+        
+        max-width: 768px {
+            .container {
+                padding: 40px 20px;
+                margin: 20px;
+                background-size: 80px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .names {
+                font-size: 3.2rem;
+            }
+            
+            .date {
+                font-size: 1.8rem;
+            }
+            
+            .couple-photo {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .location {
+                padding: 15px 20px;
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Raleway:wght@300;400;500&family=Great+Vibes&display=swap&quot; rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Приглашение на свадьбу</h1>
-            <div class="names">Данил & Екатерина</div>
-            
-            <div class="couple-photo">
-                <img src="images/мы.jpg" alt="Данил и Екатерина">
-            </div>
-        </header>
+    <div class="container">
+        <header>
+            <h1>Приглашение на свадьбу</h1>
+            <div class="names">Данил & Екатерина</div>
+            
+            <div class="couple-photo">
+                <img src="images/мы.jpg" alt="Данил
 
-        <div class="date">22 Августа 2025</div>
-        
-        <div class="location">
-            Торжественная регистрация
-            <span class="address">Карла Маркса, д.40/3, Ишим</span>
-        </div>
 
-        <a href="#rsvp" class="rsvp">Подтвердить присутствие</a>
+и Екатерина">
+            </div>
+        </header>
 
-        <div class="details">
-            <h2>Дорогие друзья и родные!</h2>
-            <p style="font-size: 1.2rem;">Мы рады пригласить вас разделить с нами самый важный день в нашей жизни. Ваше присутствие сделает наш праздник по-настоящему особенным.</p>
-            
-            <h3>Программа дня:</h3>
-            <span class="program-time">14:00 - Свадебная церемония в ЗАГСе г. Ишима</span>
-            <span class="program-time">16:00 - Праздничный банкет в ресторане "Охотник"</span>
-            <span class="program-time" style="font-size: 1rem; color: #5a5a5a;">ул. Советская, 11</span>
-            <span class="program-time">00:00 - Окончание мероприятия</span>
-            
-            <h3>Дресс-код:</h3>
-            <p class="dress-code">Яркие вечерние наряды в праздничном стиле; Для мужчин - деловой внешний вид</p>
-        </div>
+        <div class="date">22 Августа 2025</div>
+        
+        <div class="location">
+            Торжественная регистрация
+            <span class="address">Карла Маркса, д.40/3, Ишим</span>
+        </div>
 
-        <div id="rsvp" style="margin-top: 60px;">
-            <h2>Подтвердите ваше присутствие</h2>
-            
-            <div id="thank-you">
-                <h3>Спасибо за ваш ответ!</h3>
-                <p>Мы получили ваше подтверждение и с нетерпением ждем встречи с вами на нашей свадьбе.</p>
-            </div>
-            
-            <!-- Обновленная форма с вашим Formspree ID -->
-            <form id="rsvp-form" action="https://formspree.io/f/xovlkwwg" method="POST" style="max-width: 400px; margin: 0 auto; display: block;">
-                <input type="text" name="Имя" placeholder="Ваше имя" required class="form-input">
-                <div id="name-error" class="error-message">Пожалуйста, введите ваше имя</div>
-                
-                <input type="email" name="Email" placeholder="Ваш email" required class="form-input">
-                <div id="email-error" class="error-message">Пожалуйста, введите корректный email</div>
-                
-                <select name="Присутствие" required class="form-select">
-                    <option value="" disabled selected>Выберите вариант</option>
-                    <option value="Приду">Я буду с удовольствием</option>
-                    <option value="Не приду">К сожалению, не смогу</option>
-                </select>
-                <div id="attendance-error" class="error-message">Пожалуйста, выберите вариант</div>
-                
-                <input type="number" name="Количество гостей" placeholder="Количество гостей" min="1" value="1" class="form-input">
-                
-                <textarea name="Пожелания" placeholder="Ваши пожелания или комментарии" class="form-textarea"></textarea>
-                
-                <!-- Скрытые поля для настройки Formspree -->
-                <input type="hidden" name="_replyto" value="danil.skidanov1337@mail.ru">
-                <input type="hidden" name="_language" value="ru">
-                <input type="hidden" name="_subject" value="Ответ на свадьбу: Данил и Екатерина">
-                <input type="hidden" name="_format" value="plain">
-                <input type="text" name="_gotcha" style="display:none">
-                
-                <button type="submit" class="rsvp" style="border: none; margin-top: 20px; background: var(--burgundy); color: var(--cream);">Отправить ответ</button>
-            </form>
-            
-            <div class="loader" id="loader"></div>
-            <div id="form-error" style="color: var(--burgundy); margin-top: 15px; display: none;"></div>
-        </div>
+        <a href="#rsvp" class="rsvp">Подтвердить присутствие</a>
 
-        <footer>
-            <div style="font-family: 'Great Vibes', cursive; font-size: 1.8rem; margin-bottom: 20px; color: var(--burgundy);">С любовью, Данил и Екатерина</div>
-            <div style="margin-top: 20px;">
-                <div style="display: inline-block; margin: 0 15px;">
-                    <span style="font-weight: 500; color: var(--dark-green);">Екатерина:</span> +7 (951) 801 36 05
-                </div>
-                <div style="display: inline-block; margin: 0 15px;">
-                    <span style="font-weight: 500; color: var(--dark-green);">Данил:</span> +7 (908) 865 41 63
-                </div>
-            </div>
-        </footer>
-    </div>
+        <div class="details">
+            <h2>Дорогие друзья и родные!</h2>
+            <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Мы рады пригласить вас разделить с нами самый важный день в нашей жизни. Ваше присутствие сделает наш праздник по-настоящему особенным.</p>
+            
+            <div class="floral-divider"></div>
+            
+            <h3>Программа дня:</h3>
+            <span class="program-time">14:00 - Свадебная церемония в ЗАГСе г. Ишима</span>
+            <span class="program-time">16:00 - Праздничный банкет в ресторане "Охотник"</span>
+            <span class="program-time" style="font-size: 1rem; color: #5a5a5a;">ул. Советская, 11</span>
+            <span class="program-time">00:00 - Окончание мероприятия</span>
+            
+            <div class="floral-divider"></div>
+            
+            <h3>Дресс-код:</h3>
+            <p class="dress-code">Яркие вечерние наряды в праздничном стиле
+Для мужчин - деловой внешний вид</p>
+        </div>
 
-    <script>
-        function showError(elementId, message) {
-            const errorElement = document.getElementById(elementId);
-            errorElement.textContent = message;
-            errorElement.style.display = 'block';
-        }
-        
-        function hideError(elementId) {
-            const errorElement = document.getElementById(elementId);
-            errorElement.style.display = 'none';
-        }
-        
-        function validateForm() {
-            let isValid = true;
-            
-            // Проверка имени
-            const nameInput = document.querySelector('input[name="Имя"]');
-            if (!nameInput.value.trim()) {
-                showError('name-error', 'Пожалуйста, введите ваше имя');
-                isValid = false;
-            } else {
-                hideError('name-error');
-            }
-            
-            // Проверка email
-            const emailInput = document.querySelector('input[name="Email"]');
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(emailInput.value.trim())) {
-                showError('email-error', 'Пожалуйста, введите корректный email');
-                isValid = false;
-            } else {
-                hideError('email-error');
-            }
-            
-            // Проверка присутствия
-            const attendanceSelect = document.querySelector('select[name="Присутствие"]');
-            if (!attendanceSelect.value) {
-                showError('attendance-error', 'Пожалуйста, выберите вариант');
-                isValid = false;
-            } else {
-                hideError('attendance-error');
-            }
-            
-            return isValid;
-        }
-        
-        document.getElementById('rsvp-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            if (!validateForm()) {
-                return;
-            }
-            
-            const submitButton = this.querySelector('button[type="submit"]');
-            submitButton.disabled = true;
-            document.getElementById('loader').style.display = 'block';
-            document.getElementById('form-error').style.display = 'none';
-            
-            const formData = new FormData(this);
-            
-            fetch(this.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    return response.text().then(text => {
-                        throw new Error(text || 'Ошибка сервера');
-                    });
-                }
-            })
-            .then(data => {
-                document.getElementById('loader').style.display = 'none';
-                submitButton.disabled = false;
-                
-                if (data.success) {
-                    this.style.display = 'none';
-                    document.getElementById('thank-you').style.display = 'block';
-                } else {
-                    document.getElementById('form-error').textContent = 
-                        'Ошибка отправки: ' + (data.error || 'Неизвестная ошибка');
-                    document.getElementById('form-error').style.display = 'block';
-                }
-            })
-            .catch(error => {
-                document.getElementById('loader').style.display = 'none';
-                submitButton.disabled = false;
-                document.getElementById('form-error').textContent = 
-                    'Ошибка сети: ' + (error.message || 'Проверьте соединение и попробуйте снова');
-                document.getElementById('form-error').style.display = 'block';
-            });
-        });
-    </script>
+        <div id="rsvp" style="margin-top: 60px;">
+            <h2>Подтвердите ваше присутствие</h2>
+            
+            <div id="thank-you">
+                <h3>Спасибо за ваш ответ!</h3>
+                <p>Мы получили ваше подтверждение и с нетерпением ждем встречи с вами на нашей свадьбе.</p>
+            </div>
+            
+            <form id="rsvp-form" action="https://formspree.io/f/xovlkwwg&quot; method="POST" style="max-width: 400px; margin: 0 auto; display: block;">
+                <input type="text" name="Имя" placeholder="Ваше имя" required class="form-input">
+                <div id="name-error" class="error-message">Пожалуйста, введите ваше имя</div>
+                
+                <input type="email" name="Email" placeholder="Ваш email" required class="form-input">
+                <div id="email-error" class="error-message">Пожалуйста, введите корректный email</div>
+                
+                <select name="Присутствие" required class="form-select">
+                    <option value="" disabled selected>Выберите вариант</option>
+                    <option value="Приду">Я буду с удовольствием</option>
+                    <option value="Не приду">К сожалению, не смогу</option>
+                </select>
+                <div id="attendance-error" class="error-message">Пожалуйста, выберите вариант</div>
+                
+                <input type="number" name="Количество гостей" placeholder="Количество гостей" min="1" value="1" class="form-input">
+                
+                <textarea name="Пожелания" placeholder="Ваши пожелания или комментарии" class="form-textarea"></textarea>
+                
+                <!-- Скрытые поля для настройки Formspree -->
+                <input type="hidden" name="_replyto" value="danil.skidanov1337@mail.ru">
+                <input type="hidden" name="_language" value="ru">
+                <input type="hidden" name="_subject" value="Ответ на свадьбу: Данил и Екатерина">
+                <input type="hidden" name="_format" value="plain">
+                <input type="text" name="_gotcha" style="display:none">
+                
+                <button type="submit" class="rsvp" style="border: none; margin-top: 20px; background: var(--burgundy); color: var(--cream); width: 80%; max-width: 300px;">Отправить ответ</button>
+            </form>
+            
+            <div id="loader" style="display: none; margin: 20px auto; width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid var(--burgundy); border-radius: 50%; animation: spin 1s linear infinite;"></div>
+            <div id="form-error" style="color: var(--burgundy); margin-top: 15px; display: none;"></div>
+        </div>
+
+        <footer>
+            <div style="font-family: 'Great
+
+
+Vibes', cursive; font-size: 1.8rem; margin-bottom: 20px; color: var(--burgundy);">С любовью, Данил и Екатерина</div>
+            <div style="margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: center;">
+                <div style="margin: 0 15px 10px;">
+                    <span style="font-weight: 500; color: var(--dark-green);">Екатерина:</span> +7 (951) 801 36 05
+                </div>
+                <div style="margin: 0 15px 10px;">
+                    <span style="font-weight: 500; color: var(--dark-green);">Данил:</span> +7 (908) 865 41 63
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+        
+        function hideError(elementId) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.style.display = 'none';
+        }
+        
+        function validateForm() {
+            let isValid = true;
+            
+            // Проверка имени
+            const nameInput = document.querySelector('input[name="Имя"]');
+            if (!nameInput.value.trim()) {
+                showError('name-error', 'Пожалуйста, введите ваше имя');
+                isValid = false;
+            } else {
+                hideError('name-error');
+            }
+            
+            // Проверка email
+            const emailInput = document.querySelector('input[name="Email"]');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value.trim())) {
+                showError('email-error', 'Пожалуйста, введите корректный email');
+                isValid = false;
+            } else {
+                hideError('email-error');
+            }
+            
+            // Проверка присутствия
+            const attendanceSelect = document.querySelector('select[name="Присутствие"]');
+            if (!attendanceSelect.value) {
+                showError('attendance-error', 'Пожалуйста, выберите вариант');
+                isValid = false;
+            } else {
+                hideError('attendance-error');
+            }
+            
+            return isValid;
+        }
+        
+        document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!validateForm()) {
+                return;
+            }
+            
+            const submitButton = this.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            document.getElementById('loader').style.display = 'block';
+            document.getElementById('form-error').style.display = 'none';
+            
+            const formData = new FormData(this);
+            
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    return response.text().then(text => {
+                        throw new Error(text || 'Ошибка сервера');
+                    });
+                }
+            })
+            .then(data => {
+                document.getElementById('loader').style.display = 'none';
+                submitButton.disabled = false;
+                
+                if (data.success) {
+                    this.style.display = 'none';
+                    document.getElementById('thank-you').style.display = 'block';
+                } else {
+                    document.getElementById('form-error').textContent = 
+                        'Ошибка отправки: ' + (data.error || 'Неизвестная ошибка');
+                    document.getElementById('form-error').style.display = 'block';
+                }
+            })
+            .catch(error => {
+
+
+document.getElementById('loader').style.display = 'none';
+                submitButton.disabled = false;
+                document.getElementById('form-error').textContent = 
+                    'Ошибка сети: ' + (error.message || 'Проверьте соединение и попробуйте снова');
+                document.getElementById('form-error').style.display = 'block';
+            });
+        });
+
+        // Добавляем анимацию для загрузчика
+        document.head.innerHTML += '<style>@keyframes spin {0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); }}</style>';
+    </script>
 </body>
 </html>
+
