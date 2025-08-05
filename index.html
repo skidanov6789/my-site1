@@ -17,7 +17,9 @@
         
         body {
             font-family: 'Raleway', sans-serif;
-            background: url('https://www.transparenttextures.com/patterns/cream-paper.png'), linear-gradient(to bottom, #f8f4e9, #f0e8d8);
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f9f5f0"/><path d="M0,50 Q50,40 100,50 L100,100 L0,100 Z" fill="%23f0e8d8" opacity="0.6"/></svg>'), 
+                        linear-gradient(to bottom, #f8f4e9, #f0e8d8);
+            background-size: 100px 100px, cover;
             color: #3a3a3a;
             margin: 0;
             padding: 0;
@@ -27,6 +29,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            animation: fadeIn 1.5s ease-out;
         }
         
         .container {
@@ -37,15 +40,47 @@
             position: relative;
             background-color: var(--cream);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            background-image: 
-                url('https://i.ibb.co/0FvQv1w/corner-top-left.png'), 
-                url('https://i.ibb.co/5Kp6d0z/corner-top-right.png'),
-                url('https://i.ibb.co/7C4X4T8/corner-bottom-left.png'),
-                url('https://i.ibb.co/QfMqFdX/corner-bottom-right.png');
-            background-repeat: no-repeat;
-            background-position: left top, right top, left bottom, right bottom;
-            background-size: 120px;
             border: 1px solid rgba(109, 45, 45, 0.1);
+            animation: scaleIn 0.8s ease-out;
+            overflow: hidden;
+        }
+        
+        /* Угловые декоративные элементы */
+        .corner {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+        
+        .corner-tl {
+            top: 15px;
+            left: 15px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="%23c5a368" stroke-width="2"/><path d="M10,10 L10,40 L40,10 Z" fill="none" stroke="%236d2d2d" stroke-width="1.5"/></svg>');
+            animation: fadeIn 0.8s 0.2s backwards;
+        }
+        
+        .corner-tr {
+            top: 15px;
+            right: 15px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="%23c5a368" stroke-width="2"/><path d="M90,10 L90,40 L60,10 Z" fill="none" stroke="%236d2d2d" stroke-width="1.5"/></svg>');
+            animation: fadeIn 0.8s 0.3s backwards;
+        }
+        
+        .corner-bl {
+            bottom: 15px;
+            left: 15px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="%23c5a368" stroke-width="2"/><path d="M10,90 L10,60 L40,90 Z" fill="none" stroke="%236d2d2d" stroke-width="1.5"/></svg>');
+            animation: fadeIn 0.8s 0.4s backwards;
+        }
+        
+        .corner-br {
+            bottom: 15px;
+            right: 15px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="%23c5a368" stroke-width="2"/><path d="M90,90 L90,60 L60,90 Z" fill="none" stroke="%236d2d2d" stroke-width="1.5"/></svg>');
+            animation: fadeIn 0.8s 0.5s backwards;
         }
         
         .container::before {
@@ -55,12 +90,18 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            background: linear-gradient(90deg, transparent, var(--gold),
+SVG namespace
+www.w3.org
+
+
+parent);
         }
         
         header {
             padding: 20px 0 30px;
             position: relative;
+            animation: slideInDown 0.8s ease-out;
         }
         
         h1, h2, h3 {
@@ -100,6 +141,7 @@
             display: inline-block;
             line-height: 1.2;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            animation: fadeIn 1s 0.5s backwards;
         }
         
         .names::after {
@@ -122,21 +164,21 @@
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
             border: 8px solid var(--beige);
             position: relative;
+            animation: photoAppear 1.2s 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
+            transform-origin: center;
         }
         
         .couple-photo::before {
             content: "";
             position: absolute;
-            top:
-
-
--15px;
+            top: -15px;
             left: -15px;
             right: -15px;
             bottom: -15px;
             border: 1px solid var(--gold);
             border-radius: 50%;
             pointer-events: none;
+            animation: pulse 3s infinite;
         }
         
         .couple-photo img {
@@ -144,6 +186,11 @@
             height: 100%;
             display: block;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .couple-photo:hover img {
+            transform: scale(1.05);
         }
         
         .date {
@@ -156,6 +203,7 @@
             position: relative;
             display: inline-block;
             padding: 0 25px;
+            animation: fadeIn 1s 0.8s backwards;
         }
         
         .date::before,
@@ -187,13 +235,16 @@
             border-right: 2px solid var(--gold);
             max-width: 500px;
             position: relative;
+            animation: fadeIn 1s 1.0s backwards;
         }
         
         .address {
             font-size: 1rem;
             display: block;
             margin-top: 15px;
-            color: #5a5a5a;
+
+
+color: #5a5a5a;
             font-family: 'Raleway', sans-serif;
         }
         
@@ -208,6 +259,8 @@
             margin-left: auto;
             margin-right: auto;
             letter-spacing: 0.5px;
+            animation: fadeIn 0.8s backwards;
+            animation-delay: calc(0.2s * var(--i));
         }
         
         .program-time::before {
@@ -236,6 +289,7 @@
             letter-spacing: 1px;
             position: relative;
             overflow: hidden;
+            animation: fadeIn 1s 1.2s backwards;
         }
         
         .rsvp::before {
@@ -253,6 +307,8 @@
         .rsvp:hover {
             color: var(--cream);
             background: var(--burgundy);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(109, 45, 45, 0.3);
         }
         
         .rsvp:hover::before {
@@ -264,6 +320,7 @@
             text-align: center;
             padding: 40px 30px;
             position: relative;
+            animation: fadeIn 1s 1.0s backwards;
         }
         
         .details::before {
@@ -284,12 +341,11 @@
             font-size: 1.2rem;
             margin-top: 25px;
             display: inline-block;
-
-
-padding: 15px 30px;
+            padding: 15px 30px;
             position: relative;
             max-width: 500px;
             line-height: 1.6;
+            animation: fadeIn 1s 1.1s backwards;
         }
         
         .dress-code::before,
@@ -316,6 +372,7 @@ padding: 15px 30px;
             padding: 30px 0 10px;
             font-size: 1em;
             position: relative;
+            animation: fadeIn 1s 1.3s backwards;
         }
         
         footer::before {
@@ -335,9 +392,13 @@ padding: 15px 30px;
             padding: 30px;
             margin: 20px 0;
             border-left: 2px solid var(--gold);
-            border-right: 2px solid var(--gold);
+            border-right: 2px
+
+
+solid var(--gold);
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.2rem;
+            animation: fadeIn 0.8s;
         }
         
         .form-input, .form-select, .form-textarea {
@@ -351,12 +412,14 @@ padding: 15px 30px;
             width: 80%;
             max-width: 300px;
             font-size: 1rem;
+            transition: all 0.3s ease;
         }
         
         .form-input:focus, .form-textarea:focus {
             border-color: var(--burgundy);
             outline: none;
             box-shadow: 0 0 0 2px rgba(109, 45, 45, 0.1);
+            transform: scale(1.02);
         }
         
         .form-textarea {
@@ -379,28 +442,81 @@ padding: 15px 30px;
             position: relative;
             height: 40px;
             margin: 30px 0;
+            animation: fadeIn 0.8s backwards;
         }
         
         .floral-divider::before {
-            content: "";
+            content: "❦❦❦";
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 100px;
-            height: 30px;
-            background-image: url('https://i.ibb.co/5K4NvZb/floral-divider.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
+            color: var(--gold);
+            font-size: 1.8rem;
+            letter-spacing: 8px;
             opacity: 0.7;
+        }
+        
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes slideInDown {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes photoAppear {
+            0% { transform: scale(0.8) rotate(-10deg); opacity: 0; }
+            100% { transform: scale(1) rotate(0); opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.02); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.7; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            opacity: 0;
+            animation: float 6s ease-in-out infinite;
+            font-size: 24px;
+            color: var(--burgundy);
         }
         
         max-width: 768px {
             .container {
                 padding: 40px 20px;
                 margin: 20px;
-                background-size: 80px;
             }
             
             h1 {
@@ -424,21 +540,32 @@ padding: 15px 30px;
                 padding: 15px 20px;
                 font-size: 1.4rem;
             }
-        }
+            
+            .corner {
+                width: 50px;
+                height: 50px;
+            }
+
+
+}
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Raleway:wght@300;400;500&family=Great+Vibes&display=swap&quot; rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Raleway:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="hearts" id="hearts"></div>
+    
     <div class="container">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+        
         <header>
             <h1>Приглашение на свадьбу</h1>
             <div class="names">Данил & Екатерина</div>
             
             <div class="couple-photo">
-                <img src="images/мы.jpg" alt="Данил
-
-
-и Екатерина">
+                <img src="images/мы.jpg" alt="Данил и Екатерина">
             </div>
         </header>
 
@@ -458,10 +585,10 @@ padding: 15px 30px;
             <div class="floral-divider"></div>
             
             <h3>Программа дня:</h3>
-            <span class="program-time">14:00 - Свадебная церемония в ЗАГСе г. Ишима</span>
-            <span class="program-time">16:00 - Праздничный банкет в ресторане "Охотник"</span>
-            <span class="program-time" style="font-size: 1rem; color: #5a5a5a;">ул. Советская, 11</span>
-            <span class="program-time">00:00 - Окончание мероприятия</span>
+            <span class="program-time" style="--i: 0;">14:00 - Свадебная церемония в ЗАГСе г. Ишима</span>
+            <span class="program-time" style="--i: 1;">16:00 - Праздничный банкет в ресторане "Охотник"</span>
+            <span class="program-time" style="--i: 2; font-size: 1rem; color: #5a5a5a;">ул. Советская, 11</span>
+            <span class="program-time" style="--i: 3;">00:00 - Окончание мероприятия</span>
             
             <div class="floral-divider"></div>
             
@@ -478,7 +605,7 @@ padding: 15px 30px;
                 <p>Мы получили ваше подтверждение и с нетерпением ждем встречи с вами на нашей свадьбе.</p>
             </div>
             
-            <form id="rsvp-form" action="https://formspree.io/f/xovlkwwg&quot; method="POST" style="max-width: 400px; margin: 0 auto; display: block;">
+            <form id="rsvp-form" action="https://formspree.io/f/xovlkwwg" method="POST" style="max-width: 400px; margin: 0 auto; display: block;">
                 <input type="text" name="Имя" placeholder="Ваше имя" required class="form-input">
                 <div id="name-error" class="error-message">Пожалуйста, введите ваше имя</div>
                 
@@ -500,7 +627,10 @@ padding: 15px 30px;
                 <input type="hidden" name="_replyto" value="danil.skidanov1337@mail.ru">
                 <input type="hidden" name="_language" value="ru">
                 <input type="hidden" name="_subject" value="Ответ на свадьбу: Данил и Екатерина">
-                <input type="hidden" name="_format" value="plain">
+                <input type="hidden" name="_fo
+
+
+rmat" value="plain">
                 <input type="text" name="_gotcha" style="display:none">
                 
                 <button type="submit" class="rsvp" style="border: none; margin-top: 20px; background: var(--burgundy); color: var(--cream); width: 80%; max-width: 300px;">Отправить ответ</button>
@@ -511,10 +641,7 @@ padding: 15px 30px;
         </div>
 
         <footer>
-            <div style="font-family: 'Great
-
-
-Vibes', cursive; font-size: 1.8rem; margin-bottom: 20px; color: var(--burgundy);">С любовью, Данил и Екатерина</div>
+            <div style="font-family: 'Great Vibes', cursive; font-size: 1.8rem; margin-bottom: 20px; color: var(--burgundy);">С любовью, Данил и Екатерина</div>
             <div style="margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: center;">
                 <div style="margin: 0 15px 10px;">
                     <span style="font-weight: 500; color: var(--dark-green);">Екатерина:</span> +7 (951) 801 36 05
@@ -527,6 +654,25 @@ Vibes', cursive; font-size: 1.8rem; margin-bottom: 20px; color: var(--burgundy);
     </div>
 
     <script>
+        // Создание плавающих сердечек
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            const colors = ['#e83f6f', '#ff9f1c', '#2ec4b6', '#ff6392', '#7b2dbf'];
+            
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤';
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
         function showError(elementId, message) {
             const errorElement = document.getElementById(elementId);
             errorElement.textContent = message;
@@ -609,6 +755,7 @@ Vibes', cursive; font-size: 1.8rem; margin-bottom: 20px; color: var(--burgundy);
                 if (data.success) {
                     this.style.display = 'none';
                     document.getElementById('thank-you').style.display = 'block';
+                    createConfetti();
                 } else {
                     document.getElementById('form-error').textContent = 
                         'Ошибка отправки: ' + (data.error || 'Неизвестная ошибка');
@@ -616,9 +763,7 @@ Vibes', cursive; font-size: 1.8rem; margin-bottom: 20px; color: var(--burgundy);
                 }
             })
             .catch(error => {
-
-
-document.getElementById('loader').style.display = 'none';
+                document.getElementById('loader').style.display = 'none';
                 submitButton.disabled = false;
                 document.getElementById('form-error').textContent = 
                     'Ошибка сети: ' + (error.message || 'Проверьте соединение и попробуйте снова');
@@ -626,9 +771,42 @@ document.getElementById('loader').style.display = 'none';
             });
         });
 
-        // Добавляем анимацию для загрузчика
-        document.head.innerHTML += '<style>@keyframes spin {0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); }}</style>';
+        // Создание конфетти при отправке формы
+        function createConfetti() {
+            const confettiContainer = document.createElement('div');
+            confettiContainer.style.position = 'fixed';
+            confettiContainer.style.top = '0';
+            confettiContainer.style.left = '0';
+            confettiContainer.style.width = '100%';
+            confettiContainer.style.height = '100%';
+            confettiContainer.style.pointerEvents = 'none';
+            confettiContainer.style.zIndex = '1000';
+            document.body.appendChild(confettiContainer);
+            
+            const symbols = ['❤', '✨', '❦', '🌸', '💍', '🥂'];
+            const colors = ['#e83f6f', '#ff9f1c', '#2ec4b6', '#ff6392', '#7b2dbf', '#d4af37'];
+            
+            for (let i = 0; i < 150; i++) {
+                const confetti = document.createElement('div');
+                confetti.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                confetti.style.position = 'absolute';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.opacity = '0';
+                confetti.style.animation = `float ${Math.random() * 3 + 2}s ease-in-out forwards`;
+                confetti.style.animationDelay = Math.random() * 1 + 's';
+                confettiContainer.appendChild(confetti);
+            }
+            
+            setTimeout(() => {
+                document.body.removeChild(confettiContainer);
+            }, 5000);
+        }
+        
+        window.onload = function() {
+            createHearts();
+        };
     </script>
 </body>
-</html>
-
+</html> 
