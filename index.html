@@ -1,580 +1,605 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приглашение на свадьбу | Данил & Екатерина</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&family=Marck+Script&display=swap');
-        
-        :root {
-            --primary: #e83f6f;
-            --secondary: #ff9f1c;
-            --accent: #2ec4b6;
-            --light: #fdfffc;
-            --dark: #011627;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #fdf0f0 0%, #fff0f5 100%);
-            color: var(--dark);
-            margin: 0;
-            padding: 0;
-            line-height: 1.8;
-            overflow-x: hidden;
-            background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069');
-            background-size: cover;
-            background-attachment: fixed;
-            background-blend-mode: overlay;
-            background-color: rgba(255, 245, 245, 0.9);
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 10px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-            border-radius: 10px 10px 0 0;
-        }
-        
-        header {
-            padding: 60px 0 40px;
-            position: relative;
-        }
-        
-        h1, h2, h3 {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        h1 {
-            font-size: 3.5em;
-            margin: 20px 0;
-            color: var(--primary);
-            animation: fadeIn 1.5s ease;
-        }
-        
-        .names {
-            font-family: 'Marck Script', cursive;
-            font-size: 3.5em;
-            letter-spacing: 2px;
-            margin: 30px 0;
-            color: var(--dark);
-            position: relative;
-            display: inline-block;
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .names::after {
-            content: "";
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-        }
-        
-        .couple-photo {
-            margin: 40px auto;
-            width: 80%;
-            max-width: 400px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            border: 8px solid white;
-            transform: rotate(-2deg);
-            transition: all 0.4s ease;
-            position: relative;
-        }
-        
-        .couple-photo:hover {
-            transform: rotate(0deg) scale(1.03);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-        }
-        
-        .couple-photo img {
-            width: 100%;
-            height: auto;
-            display: block;
-            max-height: 400px;
-            object-fit: cover;
-        }
-        
-        .date {
-            font-size: 2em;
-            margin: 40px 0;
-            color: var(--primary);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .location {
-            font-size: 1.6em;
-            margin: 0;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            display: inline-block;
-        }
-        
-        .address {
-            font-size: 0.9em;
-            display: block;
-            margin-top: 10px;
-            color: #666;
-        }
-        
-        .program-time {
-            display: block;
-            margin: 15px 0;
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .program-time:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-        
-        .rsvp {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 18px 35px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.3em;
-            margin: 40px 0;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 5px 15px rgba(232, 63, 111, 0.4);
-            transition: all 0.3s ease;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .rsvp:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(232, 63, 111, 0.6);
-        }
-        
-        .details {
-            margin: 50px 0;
-            text-align: center;
-            padding: 30px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .dress-code {
-            font-style: italic;
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 1.2em;
-            margin-top: 20px;
-            display: inline-block;
-            padding: 15px 25px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            border-left: 5px solid var(--secondary);
-        }
-        
-        footer {
-            margin-top: 60px;
-            padding: 30px 0;
-            border-top: 1px solid rgba(0,0,0,0.1);
-            font-size: 1em;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 0 0 20px 20px;
-        }
-        
-        .hearts {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .heart {
-            position: absolute;
-            opacity: 0;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        #thank-you {
-            display: none;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 20px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .loader {
-            display: none;
-            width: 50px;
-            height: 50px;
-            margin: 20px auto;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        .form-input {
-            padding: 15px;
-            margin: 15px;
-            width: 80%;
-            max-width: 300px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1em;
-            transition: all 0.3s ease;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .form-input:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(232, 63, 111, 0.2);
-        }
-        
-        .form-select {
-            padding: 15px;
-            margin: 15px;
-            width: 80%;
-            max-width: 300px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1em;
-            transition: all 0.3s ease;
-            background-color: white;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .form-textarea {
-            padding: 15px;
-            margin: 15px;
-            width: 80%;
-            max-width: 300px;
-            height: 100px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1em;
-            transition: all 0.3s ease;
-            font-family: 'Montserrat', sans-serif;
-            resize: vertical;
-        }
-        
-        .error-message {
-            color: #e83f6f;
-            margin: -10px 0 10px 0;
-            font-size: 0.9em;
-            display: none;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.7;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        @keyframes confetti {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-        }
-        
-        @media (max-width: 600px) {
-            h1 { font-size: 2.5em; }
-            .names { font-size: 2.5em; }
-            .date { font-size: 1.5em; }
-            .couple-photo {
-                width: 90%;
-                max-width: 350px;
-            }
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&family=Marck+Script&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу | Данил & Екатерина</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&family=Marck+Script&display=swap');
+        
+        :root {
+            --primary: #e83f6f;
+            --secondary: #ff9f1c;
+            --accent: #2ec4b6;
+            --light: #fdfffc;
+            --dark: #011627;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #fdf0f0 0%, #fff0f5 100%);
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            overflow-x: hidden;
+            background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069');
+            background-size: cover;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+            background-color: rgba(255, 245, 245, 0.9);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            border-radius: 10px 10px 0 0;
+        }
+        
+        header {
+            padding: 60px 0 40px;
+            position: relative;
+        }
+        
+        h1, h2, h3 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 3.5em;
+            margin: 20px 0;
+            color: var(--primary);
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .names {
+            font-family: 'Marck Script', cursive;
+            font-size: 3.5em;
+            letter-spacing: 2px;
+            margin: 30px 0;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .names::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .couple-photo {
+            margin: 40px auto;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            border: 8px solid white;
+            transform: rotate(-2deg);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .couple-photo:hover {
+            transform: rotate(0deg) scale(1.03);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        
+        .couple-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-height: 400px;
+            object-fit: cover;
+        }
+        
+        .date {
+            font-size: 2em;
+            margin: 40px 0;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .location {
+            font-size: 1.6em;
+            margin: 0;
+            padding: 20px;
+
+
+background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+        
+        .address {
+            font-size: 0.9em;
+            display: block;
+            margin-top: 10px;
+            color: #666;
+        }
+        
+        .program-time {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .program-time:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .rsvp {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 18px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            margin: 40px 0;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(232, 63, 111, 0.4);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .rsvp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(232, 63, 111, 0.6);
+        }
+        
+        .details {
+            margin: 50px 0;
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .dress-code {
+            font-style: italic;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-top: 20px;
+            display: inline-block;
+            padding: 15px 25px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            border-left: 5px solid var(--secondary);
+        }
+        
+        footer {
+            margin-top: 60px;
+            padding: 30px 0;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            font-size: 1em;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            opacity: 0;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        #thank-you {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .loader {
+            display: none;
+            width: 50px;
+            height: 50px;
+            margin: 20px auto;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        .form-input {
+            padding: 15px;
+            margin: 15px;
+            width: 80%;
+            max-width: 300px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .form-input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(232, 63, 111, 0.2);
+        }
+        
+        .form-select {
+            padding: 15px;
+            margin: 15px;
+            width: 80%;
+            max-width: 300px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+
+
+transition: all 0.3s ease;
+            background-color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .form-textarea {
+            padding: 15px;
+            margin: 15px;
+            width: 80%;
+            max-width: 300px;
+            height: 100px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            resize: vertical;
+        }
+        
+        .error-message {
+            color: #e83f6f;
+            margin: -10px 0 10px 0;
+            font-size: 0.9em;
+            display: none;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes confetti {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        max-width: 600px {
+            h1 { font-size: 2.5em; }
+            .names { font-size: 2.5em; }
+            .date { font-size: 1.5em; }
+            .couple-photo {
+                width: 90%;
+                max-width: 350px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&family=Marck+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="hearts" id="hearts"></div>
-        
-        <header>
-            <h1>Приглашение на свадьбу</h1>
-            <div class="names">Данил & Екатерина</div>
-            
-            <div class="couple-photo">
-                <img src="images/мы.jpg" alt="Данил и Екатерина">
-            </div>
-        </header>
+    <div class="container">
+        <div class="hearts" id="hearts"></div>
+        
+        <header>
+            <h1>Приглашение на свадьбу</h1>
+            <div class="names">Данил & Екатерина</div>
+            
+            <div class="couple-photo">
+                <img src="images/мы.jpg" alt="Данил и Екатерина">
+            </div>
+        </header>
 
-        <div class="date">22 Августа 2025</div>
-        
-        <div class="location">
-            Торжественная регистрация
-            <span class="address">Карла Маркса, д.40/3, Ишим</span>
-        </div>
+        <div class="date">22 Августа 2025</div>
+        
+        <div class="location">
+            Торжественная регистрация
+            <span class="address">Карла Маркса, д.40/3, Ишим</span>
+        </div>
 
-        <a href="#rsvp" class="rsvp">Подтвердить присутствие</a>
+        <a href="#rsvp" class="rsvp">Подтвердить присутствие</a>
 
-        <div class="details">
-            <h2>Дорогие друзья и родные!</h2>
-            <p style="font-size: 1.1em;">Мы рады пригласить вас разделить с нами самый важный день в нашей жизни. Ваше присутствие сделает наш праздник по-настоящему особенным.</p>
-            
-            <h3 style="color: var(--accent); margin-top: 40px;">Программа дня:</h3>
-            <span class="program-time">14:00 - Свадебная церемония в ЗАГСе г. Ишима</span>
-            <span class="program-time">16:00 - Праздничный банкет в ресторане "Охотник"</span>
-            <span class="program-time" style="font-size: 0.9em; color: #666;">ул. Советская, 11</span>
-            <span class="program-time">00:00 - Окончание мероприятия</span>
-            
-            <h3 style="color: var(--accent); margin-top: 40px;">Дресс-код:</h3>
-            <p class="dress-code">Яркие вечерние наряды в праздничном стиле; Для мужчин - деловой внешний вид</p>
-        </div>
+        <div class="details">
+            <h2>Дорогие друзья и родные!</h2>
+            <p style="font-size: 1.1em;">Мы рады пригласить вас разделить с нами самый важный день в нашей жизни. Ваше присутствие сделает наш праздник по-настоящему особенным.</p>
+            
+            <h3 style="color: var(--accent); margin-top: 40px;">Программа дня:</h3>
+            <span class="program-time">14:00 - Свадебная церемония в ЗАГСе г. Ишима</span>
+            <span class="program-time">16:00 - Праздничный банкет в ресторане "Охотник"</span>
+            <span class="program-time" style="font-size: 0.9em; color: #666;">ул. Советская, 11</span>
+            <span class="program-time">00:00 - Окончание мероприятия</span>
+            
+            <h3 style="color: var(--accent); margin-top: 40px;">Дресс-код:</h3>
+            <p class="dress-code">Яркие вечерние наряды в праздничном стиле; Для мужчин - деловой внешний вид</p>
+        </div>
 
-        <div id="rsvp" style="margin-top: 60px;">
-            <h2 style="color: var(--primary);">Подтвердите ваше присутствие</h2>
-            
-            <div id="thank-you">
-                <h3 style="color: var(--accent);">Спасибо за ваш ответ!</h3>
-                <p>Мы получили ваше подтверждение и с нетерпением ждем встречи с вами на нашей свадьбе.</p>
-            </div>
-            
-            <form id="rsvp-form" action="https://formspree.io/f/mqkrgvjk" method="POST" style="max-width: 400px; margin: 0 auto; display: block;">
-                <input type="text" name="name" id="guest-name" placeholder="Ваше имя" required class="form-input">
-                <div id="name-error" class="error-message">Пожалуйста, введите ваше имя</div>
-                
-                <input type="email" name="email" id="guest-email" placeholder="Ваш email" class="form-input">
-                <div id="email-error" class="error-message">Пожалуйста, введите корректный email</div>
-                
-                <select name="attendance" id="attendance" required class="form-select">
-                    <option value="" disabled selected>Выберите вариант</option>
-                    <option value="yes">Я буду с удовольствием</option>
-                    <option value="no">К сожалению, не смогу</option>
-                </select>
-                <div id="attendance-error" class="error-message">Пожалуйста, выберите вариант</div>
-                
-                <textarea name="message" placeholder="Ваше пожелание или комментарий (необязательно)" class="form-textarea"></textarea>
-                
-                <input type="hidden" name="_language" value="ru">
-                <input type="hidden" name="_subject" value="Ответ на приглашение">
-                <input type="hidden" name="_format" value="plain">
-                
-                <button type="submit" class="rsvp" style="border: none; margin-top: 20px;">Отправить ответ</button>
-            </form>
-            
-            <div class="loader" id="loader"></div>
-            <div id="form-error" style="color: #e83f6f; margin-top: 15px; display: none;"></div>
-        </div>
+        <div id="rsvp" style="margin-top: 60px;">
+            <h2 style="color: var(--primary);">Подтвердите ваше присутствие</h2>
+            
+            <div id="thank-you">
+                <h3 style="color: var(--accent);">Спасибо за ваш ответ!</h3>
+                <p>Мы получили ваше подтверждение и с нетерпением ждем встречи с вами на нашей свадьбе.</p>
+            </div>
+            
+            <!-- Обновленная форма с вашим Formspree ID -->
+            <form id="rsvp-form" action="https://formspr
 
-        <footer>
-            <div style="font-family: 'Marck Script', cursive; font-size: 1.5em; margin-bottom: 20px; color: var(--primary);">С любовью, Данил и Екатерина</div>
-            <div style="margin-top: 20px;">
-                <div style="display: inline-block; margin: 0 15px;">
-                    <span style="font-weight: 600;">Екатерина:</span> +7 (951) 801 36 05
-                </div>
-                <div style="display: inline-block; margin: 0 15px;">
-                    <span style="font-weight: 600;">Данил:</span> +7 (908) 865 41 63
-                </div>
-            </div>
-        </footer>
-    </div>
 
-    <script>
-        function createHearts() {
-            const heartsContainer = document.getElementById('hearts');
-            const colors = ['#e83f6f', '#ff9f1c', '#2ec4b6', '#ff6392', '#7b2dbf'];
-            
-            for (let i = 0; i < 15; i++) {
-                const heart = document.createElement('div');
-                heart.innerHTML = '❤';
-                heart.className = 'heart';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.top = Math.random() * 100 + 'vh';
-                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
-                heart.style.animationDelay = Math.random() * 5 + 's';
-                heart.style.animationDuration = (Math.random() * 10 + 5) + 's';
-                heartsContainer.appendChild(heart);
-            }
-        }
-        
-        function showError(elementId, message) {
-            const errorElement = document.getElementById(elementId);
-            errorElement.textContent = message;
-            errorElement.style.display = 'block';
-        }
-        
-        function hideError(elementId) {
-            const errorElement = document.getElementById(elementId);
-            errorElement.style.display = 'none';
-        }
-        
-        function validateForm() {
-            let isValid = true;
-            
-            if (!document.getElementById('guest-name').value.trim()) {
-                showError('name-error', 'Пожалуйста, введите ваше имя');
-                isValid = false;
-            } else {
-                hideError('name-error');
-            }
-            
-            const email = document.getElementById('guest-email').value.trim();
-            if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                showError('email-error', 'Пожалуйста, введите корректный email');
-                isValid = false;
-            } else {
-                hideError('email-error');
-            }
-            
-            if (!document.getElementById('attendance').value) {
-                showError('attendance-error', 'Пожалуйста, выберите вариант');
-                isValid = false;
-            } else {
-                hideError('attendance-error');
-            }
-            
-            return isValid;
-        }
-        
-        document.getElementById('rsvp-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            if (!validateForm()) {
-                return;
-            }
-            
-            const submitButton = this.querySelector('button[type="submit"]');
-            submitButton.disabled = true;
-            document.getElementById('loader').style.display = 'block';
-            document.getElementById('form-error').style.display = 'none';
-            
-            const formData = new FormData(this);
-            
-            fetch(this.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    return response.text().then(text => {
-                        throw new Error(text || 'Ошибка сервера');
-                    });
-                }
-            })
-            .then(data => {
-                document.getElementById('loader').style.display = 'none';
-                submitButton.disabled = false;
-                
-                if (data.success) {
-                    this.style.display = 'none';
-                    document.getElementById('thank-you').style.display = 'block';
-                    createConfetti();
-                } else {
-                    document.getElementById('form-error').textContent = 
-                        'Ошибка отправки: ' + (data.error || 'Неизвестная ошибка');
-                    document.getElementById('form-error').style.display = 'block';
-                }
-            })
-            .catch(error => {
-                document.getElementById('loader').style.display = 'none';
-                submitButton.disabled = false;
-                document.getElementById('form-error').textContent = 
-                    'Ошибка сети: ' + (error.message || 'Проверьте соединение и попробуйте снова');
-                document.getElementById('form-error').style.display = 'block';
-            });
-        });
-        
-        function createConfetti() {
-            const confettiContainer = document.createElement('div');
-            confettiContainer.style.position = 'fixed';
-            confettiContainer.style.top = '0';
-            confettiContainer.style.left = '0';
-            confettiContainer.style.width = '100%';
-            confettiContainer.style.height = '100%';
-            confettiContainer.style.pointerEvents = 'none';
-            confettiContainer.style.zIndex = '1000';
-            document.body.appendChild(confettiContainer);
-            
-            const colors = ['#e83f6f', '#ff9f1c', '#2ec4b6', '#ff6392', '#7b2dbf', '#ffd166', '#06d6a0'];
-            const symbols = ['❤', '✨', '🥂', '🎉', '💍', '💌', '🌸'];
-            
-            for (let i = 0; i < 150; i++) {
-                const confetti = document.createElement('div');
-                confetti.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-                confetti.style.position = 'absolute';
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
-                confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.opacity = '0';
-                confetti.style.animation = `confetti ${Math.random() * 3 + 2}s ease-in-out forwards`;
-                confetti.style.animationDelay = Math.random() * 1 + 's';
-                confettiContainer.appendChild(confetti);
-            }
-            
-            setTimeout(() => {
-                document.body.removeChild(confettiContainer);
-            }, 5000);
-        }
-        
-        window.onload = function() {
-            createHearts();
-        };
-    </script>
+ee.io/f/xovlkwwg" method="POST" style="max-width: 400px; margin: 0 auto; display: block;">
+                <input type="text" name="Имя" placeholder="Ваше имя" required class="form-input">
+                <div id="name-error" class="error-message">Пожалуйста, введите ваше имя</div>
+                
+                <input type="email" name="Email" placeholder="Ваш email" required class="form-input">
+                <div id="email-error" class="error-message">Пожалуйста, введите корректный email</div>
+                
+                <select name="Присутствие" required class="form-select">
+                    <option value="" disabled selected>Выберите вариант</option>
+                    <option value="Приду">Я буду с удовольствием</option>
+                    <option value="Не приду">К сожалению, не смогу</option>
+                </select>
+                <div id="attendance-error" class="error-message">Пожалуйста, выберите вариант</div>
+                
+                <input type="number" name="Количество гостей" placeholder="Количество гостей" min="1" value="1" class="form-input">
+                
+                <textarea name="Пожелания" placeholder="Ваши пожелания или комментарии" class="form-textarea"></textarea>
+                
+                <!-- Скрытые поля для настройки Formspree -->
+                <input type="hidden" name="_replyto" value="danil.skidanov1337@mail.ru">
+                <input type="hidden" name="_language" value="ru">
+                <input type="hidden" name="_subject" value="Ответ на свадьбу: Данил и Екатерина">
+                <input type="hidden" name="_format" value="plain">
+                <input type="text" name="_gotcha" style="display:none">
+                
+                <button type="submit" class="rsvp" style="border: none; margin-top: 20px;">Отправить ответ</button>
+            </form>
+            
+            <div class="loader" id="loader"></div>
+            <div id="form-error" style="color: #e83f6f; margin-top: 15px; display: none;"></div>
+        </div>
+
+        <footer>
+            <div style="font-family: 'Marck Script', cursive; font-size: 1.5em; margin-bottom: 20px; color: var(--primary);">С любовью, Данил и Екатерина</div>
+            <div style="margin-top: 20px;">
+                <div style="display: inline-block; margin: 0 15px;">
+                    <span style="font-weight: 600;">Екатерина:</span> +7 (951) 801 36 05
+                </div>
+                <div style="display: inline-block; margin: 0 15px;">
+                    <span style="font-weight: 600;">Данил:</span> +7 (908) 865 41 63
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            const colors = ['#e83f6f', '#ff9f1c', '#2ec4b6', '#ff6392', '#7b2dbf'];
+            
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤';
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+        
+        function hideError(elementId) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.style.display = 'none';
+        }
+        
+        function validateForm() {
+            let isValid = true;
+            
+            //
+
+
+Проверка имени
+            const nameInput = document.querySelector('input[name="Имя"]');
+            if (!nameInput.value.trim()) {
+                showError('name-error', 'Пожалуйста, введите ваше имя');
+                isValid = false;
+            } else {
+                hideError('name-error');
+            }
+            
+            // Проверка email
+            const emailInput = document.querySelector('input[name="Email"]');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value.trim())) {
+                showError('email-error', 'Пожалуйста, введите корректный email');
+                isValid = false;
+            } else {
+                hideError('email-error');
+            }
+            
+            // Проверка присутствия
+            const attendanceSelect = document.querySelector('select[name="Присутствие"]');
+            if (!attendanceSelect.value) {
+                showError('attendance-error', 'Пожалуйста, выберите вариант');
+                isValid = false;
+            } else {
+                hideError('attendance-error');
+            }
+            
+            return isValid;
+        }
+        
+        document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!validateForm()) {
+                return;
+            }
+            
+            const submitButton = this.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            document.getElementById('loader').style.display = 'block';
+            document.getElementById('form-error').style.display = 'none';
+            
+            const formData = new FormData(this);
+            
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    return response.text().then(text => {
+                        throw new Error(text || 'Ошибка сервера');
+                    });
+                }
+            })
+            .then(data => {
+                document.getElementById('loader').style.display = 'none';
+                submitButton.disabled = false;
+                
+                if (data.success) {
+                    this.style.display = 'none';
+                    document.getElementById('thank-you').style.display = 'block';
+                    createConfetti();
+                } else {
+                    document.getElementById('form-error').textContent = 
+                        'Ошибка отправки: ' + (data.error || 'Неизвестная ошибка');
+                    document.getElementById('form-error').style.display = 'block';
+                }
+            })
+            .catch(error => {
+                document.getElementById('loader').style.display = 'none';
+                submitButton.disabled = false;
+                document.getElementById('form-error').textContent = 
+                    'Ошибка сети: ' + (error.message || 'Проверьте соединение и попробуйте снова');
+                document.getElementById('form-error').style.display = 'block';
+            });
+        });
+        
+        function createConfetti() {
+            const confettiContainer = document.createElement('div');
+            confettiContainer.style.position = 'fixed';
+            confettiContainer.style.top = '0';
+            confettiContainer.style.left = '0';
+            confettiContainer.style.width = '100%';
+            confettiContainer.style.height = '100%';
+            confettiContainer.style.pointerEvents = 'none';
+            confettiContainer.style.zIndex = '1000';
+            document.body.appendChild(confettiContainer);
+            
+            const colors = ['#e83f6f', '#ff9f1c', '#2ec4b6', '#ff6392', '#7b2dbf', '#ffd166', '#06d6a0'];
+            const symbols = ['❤', '✨', '🥂', '🎉', '💍', '💌', '🌸'];
+style.top-ÕýÔÚÎ÷²¿ÊýÂë(www.west.cn)½øÐÐ½»Ò×
+style.top-ÕýÔÚÎ÷²¿ÊýÂë(www.west.cn)½øÐÐ½»Ò×
+confettiContainer.style.top
+
+
+for (let i = 0; i < 150; i++) {
+                const confetti = document.createElement('div');
+                confetti.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                confetti.style.position = 'absolute';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.opacity = '0';
+                confetti.style.animation = `confetti ${Math.random() * 3 + 2}s ease-in-out forwards`;
+                confetti.style.animationDelay = Math.random() * 1 + 's';
+                confettiContainer.appendChild(confetti);
+            }
+            
+            setTimeout(() => {
+                document.body.removeChild(confettiContainer);
+            }, 5000);
+        }
+        
+        window.onload = function() {
+            createHearts();
+        };
+    </script>
 </body>
 </html>
-
