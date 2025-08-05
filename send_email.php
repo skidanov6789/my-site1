@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     // Настройки почты
-    $to = 'ВАШ_EMAIL@EXAMPLE.COM'; // ЗАМЕНИТЕ НА ВАШ РЕАЛЬНЫЙ EMAIL
+    $to = 'danil.skidanov1337@mail.ru'; // ЗАМЕНИТЕ НА ВАШ РЕАЛЬНЫЙ EMAIL
     $subject = 'Ответ на приглашение: ' . $name;
     
     // Формирование содержимого письма
