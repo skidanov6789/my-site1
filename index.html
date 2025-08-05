@@ -379,7 +379,7 @@ px;
             <span class="program-time">00:00 - Окончание мероприятия</span>
             
             <h3 style="color: var(--accent); margin-top: 40px;">Дресс-код:</h3>
-            <p class="dress-code">Яркие вечерние наряды в праздничном стиле;   Для мужчин - стильные костюмы с акцентами</p>
+            <p class="dress-code">Яркие вечерние наряды в праздничном стиле; Для мужчин - деловой внешний вид</p>
         </div>
 
         <div id="rsvp" style="margin-top: 60px;">
@@ -396,13 +396,12 @@ px;
 
 ree.io/f/mqkrgvjk" method="POST" style="max-width: 400px; margin: 0 auto; display: block;">
                 <input type="text" name="name" id="guest-name" placeholder="Ваше имя" required class="form-input">
-                <input type="email" name="email" id="guest-email" placeholder="Ваш email" class="form-input">
                 <select name="attendance" id="attendance" required class="form-select">
                     <option value="" disabled selected>Выберите вариант</option>
                     <option value="yes">Я буду с удовольствием</option>
                     <option value="no">К сожалению, не смогу</option>
                 </select>
-                <textarea name="message" placeholder="Ваше пожелание или комментарий, укажите есть "+1" (необязательно)" class="form-textarea"></textarea>
+                <textarea name="message" placeholder="Ваше пожелание или комментарий (необязательно)" class="form-textarea"></textarea>
                 <button type="submit" class="rsvp" style="border: none; margin-top: 20px;">Отправить ответ</button>
             </form>
             
@@ -461,10 +460,12 @@ ree.io/f/mqkrgvjk" method="POST" style="max-width: 400px; margin: 0 auto; displa
                 }
             })
             .then(response => {
+                // Скрыть загрузчик в любом случае
+                document.getElementById('loader').style.display = 'none';
+                
                 if (response.ok) {
-                    // Скрыть форму и загрузчик
+                    // Скрыть форму
                     this.style.display = 'none';
-                    document.getElementById('loader').style.display = 'none';
                     
                     // Показать сообщение об успехе
                     document.getElementById('thank-you').style.display = 'block';
@@ -472,19 +473,13 @@ ree.io/f/mqkrgvjk" method="POST" style="max-width: 400px; margin: 0 auto; displa
                     // Создать анимацию конфетти
                     createConfetti();
                 } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            alert("Ошибка отправки: " + data.errors.map(error => error.message).join(", "));
-                        } else {
-                            alert("Произошла ошибка при отправке формы");
-                        }
-                        document.getElementById('loader').style.display = 'none';
-                    });
+                    // Вывести более точное сообщение об ошибке
+                    alert("Произошла ошибка при отправке. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону.");
                 }
             })
             .catch(error => {
-                alert("Произошла ошибка при отправке формы");
                 document.getElementById('loader').style.display = 'none';
+                alert("Произошла ошибка при отправке. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону.");
             });
         });
         
